@@ -1,4 +1,4 @@
-class CreateMixtapes < ActiveRecord::Migration[5.1]
+class Mixtapes < ActiveRecord::Migration[5.1]
   def change
     create_table :mixtapes do |t|
       t.string :name
