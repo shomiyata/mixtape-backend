@@ -1,6 +1,29 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    @user = User.find_or_create_by(spotify_user_id: params[:user_id], name: params[:name])
+    if params[:error]
+      puts "error!!!!", params
+      redirect_to "http://localhost:3001"
+    else
+      body = {
+        grant_type: "authorization_code",
+        code: params[:code],
+        redirect_uri: ENV['REDIRECT_URI'],
+        client_id: ENV['CLIENT_ID'],
+        client_secret: ENV['CLIENT_SECRET']
+      }
+
+      auth_response = RestClient.post('https://accounts.spotify.com/api/token', body)
+      auth_params = JSON.parse(auth_response.body)
+      puts "here we gooooo...", auth_params["access_token"]
+
+      header = { Authorization: "Bearer #{auth_params["access_token"]}" }
+      user_response = RestClient.get('https://api.spotify.com/v1/me', header)
+      user_params = JSON.parse(user_response.body)
+
+      @user = User.find_or_create_by(spotify_user_id: user_params["id"], country: user_params["country"])
+      @user.update(access_token: user_params["access_token"], refresh_token: user_params["refresh_token"])
+      redirect_to "http://localhost:3001"
+    end
   end
 end
