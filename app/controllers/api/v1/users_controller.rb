@@ -15,14 +15,14 @@ class Api::V1::UsersController < ApplicationController
 
       auth_response = RestClient.post('https://accounts.spotify.com/api/token', body)
       auth_params = JSON.parse(auth_response.body)
-      puts "here we gooooo...", auth_params["access_token"]
 
       header = { Authorization: "Bearer #{auth_params["access_token"]}" }
       user_response = RestClient.get('https://api.spotify.com/v1/me', header)
       user_params = JSON.parse(user_response.body)
+      puts "user params ---->", user_params
 
-      @user = User.find_or_create_by(spotify_user_id: user_params["id"], country: user_params["country"])
-      @user.update(access_token: user_params["access_token"], refresh_token: user_params["refresh_token"])
+      @user = User.find_or_create_by(spotify_user_id: user_params["id"])
+      @user.update(access_token: auth_params["access_token"], refresh_token: auth_params["refresh_token"])
       redirect_to "http://localhost:3001"
     end
   end

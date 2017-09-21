@@ -43,3 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For hiding access keys
 gem 'figaro'
+
+# Auth
+gem 'jwt'
