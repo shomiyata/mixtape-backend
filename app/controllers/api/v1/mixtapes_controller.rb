@@ -1,5 +1,12 @@
 class Api::V1::MixtapesController < ApplicationController
 
+  def index
+    @user = User.find(params[:id])
+    past_mixtapes = @user.mixtapes
+    puts @user.mixtapes
+    render json: past_mixtapes, status: 200
+  end
+
   def new
     @user = User.find(params[:id])
     header = { Authorization: "Bearer #{@user.access_token}" }

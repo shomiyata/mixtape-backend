@@ -1,4 +1,4 @@
-class Api::V1::LoginController < ApplicationController
+class Api::V1::AuthController < ApplicationController
 
   def create
     query_params={
