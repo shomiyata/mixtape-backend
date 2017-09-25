@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920184257) do
+ActiveRecord::Schema.define(version: 20170925141408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "mixtape_grams", force: :cascade do |t|
-    t.string "recipient_email"
-    t.text "note"
-    t.boolean "email_required"
-    t.string "url"
-    t.integer "mixtape_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "sender_name"
-  end
 
   create_table "mixtapes", force: :cascade do |t|
     t.string "name"
@@ -32,6 +21,11 @@ ActiveRecord::Schema.define(version: 20170920184257) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "recipient_email"
+    t.text "note"
+    t.boolean "email_required"
+    t.string "url"
+    t.string "sender_name"
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,10 +5,9 @@ Rails.application.routes.draw do
       get 'login', to: 'auth#create'
       post 'users/create', to: 'users#create'
       post 'users/verify', to: 'users#verify'
-
-      # FIX THIS BELOW, NEST CORRECTLY!
       get 'users/:id/mixtapes', to: 'mixtapes#index'
       get 'users/:id/mixtapes/new', to: 'mixtapes#new'
+      post 'users/:id/mixtapes/new', to: 'mixtapes#create'
     end
   end
 end

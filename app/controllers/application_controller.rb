@@ -21,6 +21,7 @@ class ApplicationController < ActionController::API
   def current_user
     decoded_hash = decoded_token(token)
     if !decoded_hash.empty?
+      puts "checking what the decoded hash looks like!", decoded_hash
       user_id = decoded_hash[0]["user_id"]
       user = User.find(user_id)
     end
@@ -31,6 +32,6 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-    redirect_to '/api/v1' unless logged_in?
+    redirect_to '/api/v1/login' unless logged_in?
   end
 end
