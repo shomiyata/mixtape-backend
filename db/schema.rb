@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925181020) do
+ActiveRecord::Schema.define(version: 20170925203127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 20170925181020) do
     t.string "recipient_email"
     t.text "note"
     t.boolean "email_required"
-    t.string "url"
     t.string "sender_name"
     t.string "playlist_name"
+    t.integer "url"
+    t.string "sender_spotify_username"
   end
 
   create_table "users", force: :cascade do |t|

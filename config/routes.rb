@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'users/:id/mixtapes', to: 'mixtapes#index'
       get 'users/:id/mixtapes/new', to: 'mixtapes#new'
       post 'users/:id/mixtapes/new', to: 'mixtapes#create'
+      get 'mixtapes/:url', to: 'mixtapes#show'
     end
   end
 end

@@ -1,5 +1,5 @@
 class Api::V1::MixtapesController < ApplicationController
-  before_action :authorized, only: [:index]
+  before_action :authorized, only: [:index, :create]
 
   def index
     past_mixtapes = current_user.mixtapes
@@ -17,8 +17,25 @@ class Api::V1::MixtapesController < ApplicationController
   end
 
   def create
-    puts 'this is params', params
-    mixtape = Mixtape.create(spotify_playlist_id: params[:spotifyPlaylistId], playlist_name: params[:playlistName], name: params[:mixtapeName], sender_name: params[:senderName], user_id: current_user.id)
+
+    mixtape = Mixtape.create(
+      spotify_playlist_id: params[:spotifyPlaylistId],
+      sender_spotify_username: current_user.spotify_user_id,
+      playlist_name: params[:playlistName],
+      name: params[:mixtapeName],
+      sender_name: params[:senderName],
+      user_id: current_user.id,
+      note: params[:mixtapeNote],
+      email_required: params[:sendEmail],
+      url: Time.now.to_i,
+      recipient_email: params[:recipientEmail]
+      owner_username: params[:ownerUsername]
+    )
+    render json: mixtape, status: 200
+  end
+
+  def show
+    mixtape = Mixtape.find_by(url: params[:url])
     render json: mixtape, status: 200
   end
 end
