@@ -17,7 +17,6 @@ class Api::V1::MixtapesController < ApplicationController
   end
 
   def create
-
     mixtape = Mixtape.create(
       spotify_playlist_id: params[:spotifyPlaylistId],
       sender_spotify_username: current_user.spotify_user_id,
@@ -28,8 +27,9 @@ class Api::V1::MixtapesController < ApplicationController
       note: params[:mixtapeNote],
       email_required: params[:sendEmail],
       url: Time.now.to_i,
-      recipient_email: params[:recipientEmail]
-      owner_username: params[:ownerUsername]
+      recipient_email: params[:recipientEmail],
+      owner_username: params[:ownerUsername],
+      playlist_picture: params[:playlistPicture]
     )
     render json: mixtape, status: 200
   end
