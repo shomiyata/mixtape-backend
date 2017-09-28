@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926003510) do
+ActiveRecord::Schema.define(version: 20170928004406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "available_markets", force: :cascade do |t|
+    t.integer "track_id"
+    t.string "region"
+  end
 
   create_table "mixtapes", force: :cascade do |t|
     t.string "name"
@@ -30,6 +35,11 @@ ActiveRecord::Schema.define(version: 20170926003510) do
     t.string "sender_spotify_username"
     t.string "owner_username"
     t.string "playlist_picture"
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string "track_uri"
+    t.integer "mixtape_id"
   end
 
   create_table "users", force: :cascade do |t|

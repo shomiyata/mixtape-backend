@@ -1,6 +1,6 @@
 class Api::V1::AuthController < ApplicationController
 
-  def create
+  def login
     query_params={
       client_id: ENV['CLIENT_ID'],
       response_type: 'code',

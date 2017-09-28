@@ -1,4 +1,4 @@
 class Mixtape < ApplicationRecord
   belongs_to :user
-  has_many :mixtape_grams
+  has_many :tracks
 end
