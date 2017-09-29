@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'permission', to: 'permission#new'
       post 'permission', to: 'permission#create'
       post 'users/create', to: 'users#create'
-      post 'users/verify', to: 'users#verify'
+      get 'verify', to: 'auth#verify'
       get 'users/:id/mixtapes', to: 'mixtapes#index'
       get 'users/:id/mixtapes/new', to: 'mixtapes#new'
       post 'users/:id/mixtapes/new', to: 'mixtapes#create'

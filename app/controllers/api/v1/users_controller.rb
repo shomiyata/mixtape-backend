@@ -29,8 +29,4 @@ class Api::V1::UsersController < ApplicationController
       render json: {user: @user, jwt: token}
     end
   end
-
-  def verify
-    render json:current_user
-  end
 end
