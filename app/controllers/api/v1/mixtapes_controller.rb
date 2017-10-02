@@ -73,13 +73,14 @@ class Api::V1::MixtapesController < ApplicationController
       track[:track_uri]
     end
 
+
     header = {
       "Authorization" => "Bearer #{current_user.access_token}" ,
       "Content-Type" => "application/json"
     }
 
     body = {
-      name: params[:playlistName]
+      name: params[:mixtapeName]
     }
 
     api_url = "https://api.spotify.com/v1/users/#{current_user.spotify_user_id}/playlists"
@@ -99,5 +100,11 @@ class Api::V1::MixtapesController < ApplicationController
   def show
     mixtape = Mixtape.find_by(url: params[:url])
     render json: mixtape, status: 200
+  end
+
+  def feed
+    mixtapes = Mixtape.order(created_at: :asc).last(7).reverse
+    puts 'the last 5 mixtapes!!!', mixtapes
+    render json: mixtapes, status: 200
   end
 end

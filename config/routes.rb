@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'users/:id/mixtapes', to: 'mixtapes#index'
       get 'users/:id/mixtapes/new', to: 'mixtapes#new'
       post 'users/:id/mixtapes/new', to: 'mixtapes#create'
+      get 'mixtapes/feed', to: 'mixtapes#feed'
       get 'mixtapes/:url', to: 'mixtapes#show'
       get 'mixtapes/:id/tracks/', to: 'tracks#index'
       post 'mixtapes/:id/tracks', to: 'tracks#add'
@@ -17,7 +18,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
-# :mixtape_grams
-# resources :mixtapes
-# resources :users, only: [:show, :update, :create] do

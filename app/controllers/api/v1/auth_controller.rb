@@ -5,7 +5,7 @@ class Api::V1::AuthController < ApplicationController
       client_id: ENV['CLIENT_ID'],
       response_type: 'code',
       redirect_uri: ENV['REDIRECT_URI'],
-      scope: "playlist-read-private playlist-read-collaborative",
+      scope: "playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private",
       show_dialog: true
     }
 
