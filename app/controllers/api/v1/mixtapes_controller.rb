@@ -107,7 +107,7 @@ class Api::V1::MixtapesController < ApplicationController
   end
 
   def feed
-    mixtapes = Mixtape.order(created_at: :asc).last(7).reverse
+    mixtapes = Mixtape.order(created_at: :asc).last(6).reverse
     render json: mixtapes, status: 200
   end
 end
