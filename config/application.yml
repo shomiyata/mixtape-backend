@@ -15,3 +15,5 @@ CLIENT_SECRET: 8c76bf621c184c2094dee69e94ea395d
 REDIRECT_URI: http://localhost:3001/login
 PERMISSION_REDIRECT_URI: http://localhost:3001/success
 JWT_SECRET: wafflesnstuff
+PASSWORD: mixtapesmixtapes
+EMAIL_USERNAME: mixtapes.arent.dead@gmail.com

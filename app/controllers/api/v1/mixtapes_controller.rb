@@ -56,6 +56,10 @@ class Api::V1::MixtapesController < ApplicationController
         Track.create(track_uri: val, mixtape_id: mixtape.id)
       end
     end
+
+    if mixtape.email_required
+      UserMailer.new_mixtape(mixtape).deliver_now
+    end
       #Not persisting available markets because there are too many and it would take too long
       # track["track"].each do |k, v|
       #   AvailableMarket.create(region: v, track_id: track.id)
@@ -104,7 +108,6 @@ class Api::V1::MixtapesController < ApplicationController
 
   def feed
     mixtapes = Mixtape.order(created_at: :asc).last(7).reverse
-    puts 'the last 5 mixtapes!!!', mixtapes
     render json: mixtapes, status: 200
   end
 end
