@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'mixtapes/:url', to: 'mixtapes#show'
       get 'mixtapes/:id/tracks/', to: 'tracks#index'
       post 'mixtapes/:id/tracks', to: 'tracks#add'
+      get 'tracks/:search_query', to: 'tracks#search'
       post 'mixtapes/build', to: 'mixtapes#build'
     end
   end
