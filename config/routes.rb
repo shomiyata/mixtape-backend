@@ -10,10 +10,12 @@ Rails.application.routes.draw do
       get 'users/:id/mixtapes', to: 'mixtapes#index'
       get 'users/:id/mixtapes/new', to: 'mixtapes#new'
       post 'users/:id/mixtapes/new', to: 'mixtapes#create'
+      post 'users/:id/playlists/new', to: 'playlists#create'
       get 'mixtapes/feed', to: 'mixtapes#feed'
       get 'mixtapes/:url', to: 'mixtapes#show'
       get 'mixtapes/:id/tracks/', to: 'tracks#index'
       post 'mixtapes/:id/tracks', to: 'tracks#add'
+      get 'tracks/recommend/:seed_tracks', to: 'tracks#recommend'
       get 'tracks/:search_query', to: 'tracks#search'
       post 'mixtapes/build', to: 'mixtapes#build'
     end
