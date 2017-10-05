@@ -12,8 +12,8 @@
 
 CLIENT_ID: 6d4333814f464dd4acf1f4d53a5b2b5e
 CLIENT_SECRET: 8c76bf621c184c2094dee69e94ea395d
-REDIRECT_URI: http://localhost:3001/login
-PERMISSION_REDIRECT_URI: http://localhost:3001/success
+REDIRECT_URI: http://mixtapesarentdead.herokuapp.com/login
+PERMISSION_REDIRECT_URI: http://mixtapesarentdead.herokuapp.com/success
 JWT_SECRET: wafflesnstuff
 PASSWORD: mixtapesmixtapes
 EMAIL_USERNAME: mixtapes.arent.dead@gmail.com
