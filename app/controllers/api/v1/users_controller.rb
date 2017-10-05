@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     if params[:error]
       puts "error!!!!", params
-      redirect_to "http://localhost:3001"
+      redirect_to "https://mixtapesarentdead.herokuapp.com"
     else
       body = {
         grant_type: "authorization_code",

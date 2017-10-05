@@ -9,9 +9,9 @@
     <tr>
         <td align="center">
           <p style="color: #367588; font-size:52px; font-weight: 100;"><%= @mixtape.sender_name%> sent you a mixtape!</p>
-          <p style="color: #03D5BE; font-size:36px; font-weight: 100;">Click <a href=<%="http://localhost:3001/mixtapes/listen?#{@mixtape.url}"%>>here</a> to give it a listen!</p>
+          <p style="color: #03D5BE; font-size:36px; font-weight: 100;">Click <a href=<%="https://mixtapesarentdead.herokuapp.com/mixtapes/listen?#{@mixtape.url}"%>>here</a> to give it a listen!</p>
           <img src="http://svgshare.com/i/3Hr.svg">
-          <p style="color: #808080; font-size:16px;">Sent to you via <a href=<%="http://localhost:3001/mixtapes/listen?#{@mixtape.url}"%>>mixtapes aren't dead.</a>
+          <p style="color: #808080; font-size:16px;">Sent to you via <a href=<%="https://mixtapesarentdead.herokuapp.com/mixtapes/listen?#{@mixtape.url}"%>>mixtapes aren't dead.</a>
         </td>
     </tr>
 </table>
