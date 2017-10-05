@@ -28,6 +28,3 @@ class Api::V1::TracksController < ApplicationController
   end
 
 end
-
-
-#https://api.spotify.com/v1/search?q=killer+queen&type=track
